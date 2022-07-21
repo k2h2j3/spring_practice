@@ -1,13 +1,15 @@
 package Club.WelcomeClub.repository;
 
 import Club.WelcomeClub.domain.Member;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
+@ResponseBody
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
-    private static long sequence = 0L;
+    private static long sequence = 0L; //키 값을 생성해주는 역할
 
     @Override
     public Member save(Member member) {
